@@ -100,7 +100,7 @@ const displaySearchResult = books => {
           <div class="card-body">
           <h5 class="card-title">${book.title}</h5>
           <p class="card-text"><span class="fw-bold">Book Author-Name: </span>${authorName}</p>
-          <p class="card-text"><span class="fw-bold">Book Publisher: </span>${publisher.slice(0,50)}</p>
+          <p class="card-text"><span class="fw-bold">Book Publisher: </span>${publisher.slice(0,20)}</p>
           <p class="card-text"><span class="fw-bold">Book First Publish_Year: </span>${ publish_year}</p>
           </div>
         `;
