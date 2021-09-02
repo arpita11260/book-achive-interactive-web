@@ -11,11 +11,12 @@ const searchBook = () => {
     }
     else{
         //load data
-    const url = `http://openlibrary.org/search.json?q=${searchText}`;
+    const url = `https://openlibrary.org/search.json?q=${searchText}`;
     spinner.classList.remove("d-none");
     fetch(url)
     .then(res => res.json())
     .then((data) => {
+
         // Setting a timer of 1.5s, before removing the spinnner, and showing data
         setTimeout(() => {
           spinner.classList.add("d-none");
