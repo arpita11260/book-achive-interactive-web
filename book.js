@@ -56,18 +56,52 @@ const displaySearchResult = books => {
    }
     books.forEach(book => {
 
-        // console.log(meal);
+      //unavailable book cover  
+      let imgUrl = '';
+      if(book.cover_i == null){
+        imgUrl = `./img/img.png`;
+      }
+      else{
+        imgUrl = 'https://covers.openlibrary.org/b/id/'+ book.cover_i +'-M.jpg';
+      }
+
+      //unavailable author name 
+      let authorName = '';
+      if(book.author_name == null){
+        authorName = "Not found";
+      }
+      else{
+        authorName = book.author_name;
+      }
+
+      //unavailable publisher
+      let publisher = '';
+      if(book.publisher == null){
+        publisher = "Not found";
+      }
+      else{
+        publisher = book.publisher;
+      }
+
+      //unavailable publish_year
+      let publish_year = '';
+      if(book.first_publish_year == null){
+        publish_year = "Not found";
+      }
+      else{
+        publish_year = book.first_publish_year;
+      }
         const div = document.createElement('div');
+
         div.classList.add('col');
         div.innerHTML = `
-        <div class="col-md-12 border border-secondary">
-            <img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-100 h-50 img-fluid" alt="...">
-            <div class="card-body bg-white">
-              <h5 class="card-title">${book.title}</h5>
-              <p class="card-text"><span class="fw-bold">Book Author-Name: </span>${book.author_name}</p>
-              <p class="card-text"><span class="fw-bold">Book Publisher: </span>${book.publisher}</p>
-              <p class="card-text"><span class="fw-bold">Book First Publish_Year: </span>${book.first_publish_year}</p>
-            </div>
+        <div class="card h-100 border border-secondary">
+          <img src="${imgUrl}" class="card-img-top" height="350px" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">${book.title}</h5>
+          <p class="card-text"><span class="fw-bold">Book Author-Name: </span>${authorName}</p>
+          <p class="card-text"><span class="fw-bold">Book Publisher: </span>${publisher.slice(0,50)}</p>
+          <p class="card-text"><span class="fw-bold">Book First Publish_Year: </span>${ publish_year}</p>
           </div>
         `;
         searchResult.appendChild(div);
