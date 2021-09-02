@@ -24,7 +24,7 @@ const searchBook = () => {
         }, 1500);
       })
       .finally(() => {
-        searchInput.value === "";
+        searchField.value = "";
       });
     }
 }
